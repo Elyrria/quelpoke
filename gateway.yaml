@@ -1,0 +1,19 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: quelpoke
+  namespace: quentin
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: external-http-gateway
+    namespace: infra
+  hostnames: quelpoke.copy-paste.pro
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /quentin
+    backendRefs:
+    - name: quelpoke-app
+      port: 80

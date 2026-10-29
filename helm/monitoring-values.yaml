@@ -1,0 +1,19 @@
+# Valeurs pour prometheus-community/kube-prometheus-stack
+# Valeurs par défaut complètes : helm show values prometheus-community/kube-prometheus-stack
+
+prometheus:
+  prometheusSpec:
+    # Surveiller aussi les ServiceMonitor/PodMonitor créés hors de cette release (ex : le chart quelpoke)
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+
+# Sur GKE, le control plane est géré par Google : ces composants ne sont pas accessibles
+# et apparaîtraient en "DOWN" dans Prometheus
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeProxy:
+  enabled: false

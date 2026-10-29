@@ -9,3 +9,16 @@ go run .
 ```
 
 Le serveur écoute sur le port **8080** : <http://localhost:8080/?name=TonNom>
+
+## Avec Docker
+
+```bash
+docker build -t quelpoke .
+docker run --rm -p 8080:8080 quelpoke
+```
+
+Ou avec Docker Compose :
+
+```bash
+docker compose up --build
+```

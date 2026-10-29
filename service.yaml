@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quelpoke-app
+  namespace: quentin
+spec:
+  type: ClusterIP
+  selector:
+    app: quelpoke-app
+  ports:
+    - port: 80
+      targetPort: 8080
